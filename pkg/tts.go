@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/H1d3rOne/EdgeTTS/config"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -57,7 +56,8 @@ func (t *TTS) Validator() error {
 
 // 列出所用的声音
 func (t *TTS) ListVoices() error {
-	url := config.C.GetString("VOICE_LIST")
+	//url := config.C.GetString("VOICE_LIST")
+	url := "https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list?trustedclienttoken=6A5AA1D4EAFF4E9FB37E23D68491D6F4"
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return errors.New("创建http请求失败")

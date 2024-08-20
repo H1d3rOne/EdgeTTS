@@ -3,7 +3,6 @@ package pkg
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/H1d3rOne/EdgeTTS/config"
 	"github.com/gorilla/websocket"
 	"net/http"
 	"net/url"
@@ -29,7 +28,8 @@ func GetStream(t *TTS) <-chan Result {
 	dialer := websocket.DefaultDialer
 	dialer.Proxy = http.ProxyFromEnvironment
 
-	u, err := url.Parse(config.C.GetString("WSS_URL") + "&ConnectionId=" + ConnectID())
+	//u, err := url.Parse(config.C.GetString("WSS_URL") + "&ConnectionId=" + ConnectID())
+	u, err := url.Parse("wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&ConnectionId=" + ConnectID())
 	if err != nil {
 		panic(err)
 	}

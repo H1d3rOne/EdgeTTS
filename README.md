@@ -8,11 +8,11 @@ import "github.com/H1d3rOne/EdgeTTS"
 ```
 ## 3、使用方法  
 ``` 
-tts := new  
-client.Input("audio.mp3")  
-client.Format("srt")  
-client.Output("subtitle.srt")  
-client.Run()  
+tts := EdgeTTS.New()
+EdgeTTS.SetText(tts, "自古多情空余恨，此恨绵绵无绝期。")
+EdgeTTS.SetWriteSubtitles(tts, "output.srt")
+EdgeTTS.Run(tts)
+EdgeTTS.ListVoices(tts)
 ```
 
 
